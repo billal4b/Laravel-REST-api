@@ -29,5 +29,9 @@ In this example i will create posts table and create rest api of posts with reso
    
    Route::resource('posts', 'API\PostAPIController');
    
-### Step 5 : Create API Route   
+### Step 5 : Create Controller
+Download above two file and add Controller
+ 
+  1.app/Http/Controllers/API/APIBaseController.php
+  2.app/Http/Controllers/API/PostAPIController.php
 
