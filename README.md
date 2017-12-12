@@ -20,17 +20,10 @@ In this example i will create posts table and create rest api of posts with reso
    1. $table->string('name');
    2. $table->string('description');
   
-### Step 2 : Create Post Model
+### Step 3 : Create Post Model
    first create file in this path app/Post.php
    
-   <?php
-   namespace App;
-   use Illuminate\Database\Eloquent\Model;
-     
-  class Post extends Model
-  {
-	  protected $fillable = [
-        'name', 'description',
-    ];
-  }
+### Step 4 : Create API Route
+   open your routes/api.php file and add following route.
+    `Route::resource('posts', 'API\PostAPIController');`
 
