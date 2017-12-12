@@ -15,16 +15,18 @@ In this example i will create posts table and create rest api of posts with reso
 
 ### Step 2 : Create Post Table
 
-  terminal run bellow command : php artisan make:migration create_posts_table 
-  add two field in this migration file  
+  Terminal run bellow command : php artisan make:migration create_posts_table 
+  
+   add two field in this migration file  
    1. $table->string('name');
    2. $table->string('description');
   
 ### Step 3 : Create Post Model
-   first create file in this path app/Post.php
+   Create Post.phpfile in this path app/Post.php
    
 ### Step 4 : Create API Route
-   open your routes/api.php file and add following route.
+   Open your routes/api.php file and add following route.
+   
    Route::resource('posts', 'API\PostAPIController');
    
 ### Step 5 : Create API Route   
