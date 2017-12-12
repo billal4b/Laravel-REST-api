@@ -20,6 +20,8 @@ In this example i will create posts table and create rest api of posts with reso
    add two field in this migration file  
    1. $table->string('name');
    2. $table->string('description');
+   
+  Terminal run bellow command : php artisan migrate
   
 ### Step 3 : Create Post Model
    Create Post.phpfile in this path app/Post.php
