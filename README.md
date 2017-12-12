@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+## How to build restful api in laravel 5.5 :
 
-You can use the [editor on GitHub](https://github.com/billal4b/Laravel-REST-api/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+In this example i will create posts table and create rest api of posts with resource route. Here i also attach screen shot for all resource route response, so you can check response for GET, POST, PUT and DELETE for list, create, update and delete. So let's just follow bellow step and you will get best api platform.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Route URL : 
 
-### Markdown
+  1) action : GET, URL:http://localhost:8000/api/posts 
+  2) action : POST, URL:http://localhost:8000/api/posts
+  3) action : PUT, URL:http://localhost:8000/api/posts/{id}
+  5) action : DELETE, URL:http://localhost:8000/api/posts/{id}
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Step 1 : Install Laravel 5.5 App
+ 
+  terminal run bellow command : composer create-project --prefer-dist laravel/laravel REST-API
 
-```markdown
-Syntax highlighted code block
+### Step 2 : Create Post Table
 
-# Header 1
-## Header 2
-### Header 3
+  terminal run bellow command : php artisan make:migration create_posts_table  
+  add two field in this migration file  
+   1. $table->string('name');
+   2. $table->string('description');
+  
+### Step 2 : Create Post Model
+   first create file in this path app/Post.php
+   
+   <?php
+   namespace App;
+   use Illuminate\Database\Eloquent\Model;
+     
+  class Post extends Model
+  {
+	  protected $fillable = [
+        'name', 'description',
+    ];
+  }
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/billal4b/Laravel-REST-api/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
