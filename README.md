@@ -32,6 +32,8 @@ In this example i will create posts table and create rest api of posts with reso
 ### Step 5 : Create Controller
 Download above two file and add Controller
  
-  1.app/Http/Controllers/API/APIBaseController.php
-  2.app/Http/Controllers/API/PostAPIController.php
+  1. app/Http/Controllers/API/APIBaseController.php
+  2. app/Http/Controllers/API/PostAPIController.php
+  
+Now simply you can run above listed url in the postman
 
