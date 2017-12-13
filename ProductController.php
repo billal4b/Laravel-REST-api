@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\API\APIBaseController as APIBaseController;
-use App\Post;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Product;
 use Validator;
 
-class PostAPIController extends APIBaseController
+class ProductController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,9 @@ class PostAPIController extends APIBaseController
      */
     public function index()
     {
-        $posts = Post::all();
-        return $this->sendResponse($posts->toArray(), 'Posts retrieved successfully.');
+        $products = Product::all();
+        return $this->sendResponse($products->toArray(), 'Products retrieved successfully.');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -30,6 +29,7 @@ class PostAPIController extends APIBaseController
     public function store(Request $request)
     {
         $input = $request->all();
+
         $validator = Validator::make($input, [
             'name' => 'required',
             'description' => 'required'
@@ -38,10 +38,11 @@ class PostAPIController extends APIBaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
-        $post = Post::create($input);
-        return $this->sendResponse($post->toArray(), 'Post created successfully.');
-    }
 
+        $product = Product::create($input);
+
+        return $this->sendResponse($product->toArray(), 'Product created successfully.');
+    }
 
     /**
      * Display the specified resource.
@@ -49,14 +50,15 @@ class PostAPIController extends APIBaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
-		
-        $post = Post::find($id);
-		
-        if (is_null($post)) {
-            return $this->sendError('Post not found.');
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        if (is_null($product)) {
+            return $this->sendError('Product not found.');
         }
-        return $this->sendResponse($post->toArray(), 'Post retrieved successfully.');
+
+        return $this->sendResponse($product->toArray(), 'Product retrieved successfully.');
     }
 
     /**
@@ -69,6 +71,7 @@ class PostAPIController extends APIBaseController
     public function update(Request $request, $id)
     {
         $input = $request->all();
+
         $validator = Validator::make($input, [
             'name' => 'required',
             'description' => 'required'
@@ -77,17 +80,18 @@ class PostAPIController extends APIBaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
-        $post = Post::find($id);
-        if (is_null($post)) {
-            return $this->sendError('Post not found.');
-        }
-        $post->name = $input['name'];
-        $post->description = $input['description'];
-        $post->save();
-		
-        return $this->sendResponse($post->toArray(), 'Post updated successfully.');
-    }
 
+        $product = Product::find($id);
+        if (is_null($product)) {
+            return $this->sendError('Product not found.');
+        }
+
+        $product->name = $input['name'];
+        $product->description = $input['description'];
+        $product->save();
+
+        return $this->sendResponse($product->toArray(), 'Product updated successfully.');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -97,12 +101,14 @@ class PostAPIController extends APIBaseController
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
+        $product = Product::find($id);
 
-        if (is_null($post)) {
-            return $this->sendError('Post not found.');
-        }		
-        $post->delete();
+        if (is_null($product)) {
+            return $this->sendError('Product not found.');
+        }
+
+        $product->delete();
+
         return $this->sendResponse($id, 'Tag deleted successfully.');
     }
 }

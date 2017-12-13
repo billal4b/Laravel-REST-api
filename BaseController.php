@@ -5,8 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
 
-
-class APIBaseController extends Controller {
+class BaseController extends Controller
+{
 
     public function sendResponse($result, $message)
     {
@@ -15,6 +15,7 @@ class APIBaseController extends Controller {
             'data'    => $result,
             'message' => $message,
         ];
+
         return response()->json($response, 200);
     }
 

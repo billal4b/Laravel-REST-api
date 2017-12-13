@@ -4,18 +4,18 @@ In this example i will create posts table and create rest api of posts with reso
 
 ## Route URL : 
 
-  1) action : GET, URL:http://localhost:8000/api/posts 
-  2) action : POST, URL:http://localhost:8000/api/posts
-  3) action : PUT, URL:http://localhost:8000/api/posts/{id}
-  5) action : DELETE, URL:http://localhost:8000/api/posts/{id}
+  1) action : GET, URL:http://localhost:8000/api/products 
+  2) action : POST, URL:http://localhost:8000/api/products
+  3) action : PUT, URL:http://localhost:8000/api/products/{id}
+  5) action : DELETE, URL:http://localhost:8000/api/products/{id}
 
 ### Step 1 : Install Laravel 5.5 App
  
   terminal run bellow command : composer create-project --prefer-dist laravel/laravel REST-API
 
-### Step 2 : Create Post Table
+### Step 2 : Create Product Table
 
-  Terminal run bellow command : php artisan make:migration create_posts_table 
+  Terminal run bellow command : php artisan make:migration create_products_table 
   
    add two field in this migration file  
    1. $table->string('name');
@@ -23,19 +23,19 @@ In this example i will create posts table and create rest api of posts with reso
    
   Terminal run bellow command : php artisan migrate
   
-### Step 3 : Create Post Model
+### Step 3 : Create Product Model
    Create Post.phpfile in this path app/Post.php
    
 ### Step 4 : Create API Route
    Open your routes/api.php file and add following route.
    
-   Route::resource('posts', 'API\PostAPIController');
+   Route::resource('products', 'API\ProductController');
    
 ### Step 5 : Create Controller
-Download above two file and add Controller
+Download above two controller file and add Controller
  
-  1. app/Http/Controllers/API/APIBaseController.php
-  2. app/Http/Controllers/API/PostAPIController.php
+  1. app/Http/Controllers/API/BaseController.php
+  2. app/Http/Controllers/API/ProductController.php
   
 Now simply you can run above listed url in the postman
 
