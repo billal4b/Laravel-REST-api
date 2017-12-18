@@ -24,14 +24,17 @@ In this example i will create posts table and create rest api of posts with reso
   Terminal run bellow command : php artisan migrate
   
 ### Step 3 : Create Product Model
-   Create Post.phpfile in this path app/Post.php
+
+   Create Product.php file in this path app/Product.php
    
 ### Step 4 : Create API Route
+
    Open your routes/api.php file and add following route.
    
    Route::resource('products', 'API\ProductController');
    
 ### Step 5 : Create Controller
+
 Download above two controller file and add Controller
  
   1. app/Http/Controllers/API/BaseController.php
