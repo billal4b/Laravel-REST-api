@@ -1,6 +1,6 @@
 ## How to build restful api in laravel 5.5 :
 
-In this example i will create posts table and create rest api of posts with resource route. Here i also attach screen shot for all resource route response, so you can check response for GET, POST, PUT and DELETE for list, create, update and delete. So let's just follow bellow step and you will get best api platform.
+In this example i will create products table and create rest api of products with resource route. Here i also attach screen shot for all resource route response, so you can check response for GET, POST, PUT and DELETE for list, create, update and delete. So let's just follow bellow step and you will get best api platform.
 
 ## Route URL : 
 
